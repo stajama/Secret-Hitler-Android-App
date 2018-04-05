@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.android.secrecthitler.MainActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="32dp"
+        android:layout_gravity="center"
+        android:paddingBottom="32dp">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/initialize_start"
+            android:id="@+id/button_new_game_start"
+            />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/initialize_player_count"
+            android:id="@+id/editbox_number_of_players"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ready to join."
+        android:id="@+id/text_join_good"
+        android:layout_gravity="center" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/initialize_join"
+        android:layout_marginBottom="32dp"
+        android:layout_gravity="center"
+        android:id="@+id/button_new_game_join"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/initialize_count_error"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        android:id="@+id/text_main_error"
+        android:textColor="@color/colorAccent"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/confirm"
+        android:visibility="invisible"
+        android:id="@+id/button_main_confirmation"
+        android:layout_gravity="center"/>
+
+
+</LinearLayout>

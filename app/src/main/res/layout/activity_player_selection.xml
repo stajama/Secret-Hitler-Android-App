@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="Lorem ipsum / selection type statement"
+        android:id="@+id/text_selection_task"
+        />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/text_selection_task"
+        >
+        <!--Can add views to a Scrollview with ScrollView.addView(view, int).
+        This can be used to iterate through all eligible players and post to
+        this view. The index int also provides easy access to an identifier so that
+        click listeners can be connected to all new views. Allows for highlighting
+        and submission view a submit button.-->
+    </ScrollView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SUBMIT"
+        android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+</FrameLayout>

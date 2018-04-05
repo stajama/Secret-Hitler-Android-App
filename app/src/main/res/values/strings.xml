@@ -1,0 +1,25 @@
+<resources>
+    <string name="place_holder">Lorem ipsum</string>
+    <string name="app_name">Secrect Hitler</string>
+    <string name="initialize_start">Start a New Game</string>
+    <string name="initialize_player_count">Number of Players</string>
+    <string name="initialize_join">Join a Game</string>
+    <string name="initialize_count_error">Error: Must have 5 to 10 players.</string>
+    <string name="joining_enter_name">Enter your name.</string>
+    <string name="joining_waiting">Waiting for other players.</string>
+    <string name="base_lib_policy">Liberal Policies Enacted: </string>
+    <string name="base_fas_policy">Fascist Policies Enacted: </string>
+    <string name="base_election_tracker">Citizen Frustration:  </string>
+    <string name="base_president"> is selecting a Chancellor.</string>
+    <string name="menu_text">Role</string>
+    <string name="info_role">Your Role: </string>
+    <string name="info_loyalty">Your Party: </string>
+    <string name="info_fascists">Your Fellow Fascists: </string>
+    <string name="info_hitler"> is Hitler.</string>
+    <string name="info_back_hint">Hit the Back button to return to the Game Screen.</string>
+    <string name="selection_chancellor">Select a player to nominate for Chancellor</string>
+    <string name="voting_waiting">Waiting for other players\' votes...</string>
+    <string name="game_in_progress">A game is already in progress. Confirm to override.</string>
+    <string name="no_join_text">No game available to join. Please start one.</string>
+    <string name="confirm">Confirm</string>
+</resources>

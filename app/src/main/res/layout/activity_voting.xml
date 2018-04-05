@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_president_chancellor"
+            android:text="@string/place_holder"
+            android:padding="16dp"
+            android:layout_centerHorizontal="true"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:id="@+id/ll_voting_buttons"
+            android:padding="32dp">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ja!"
+                android:id="@+id/button_voting_ja"
+                android:layout_margin="32dp"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nien!"
+                android:id="@+id/button_voting_nien"
+                android:layout_margin="32dp"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You are dead and cannot cast a ballot."
+            android:layout_below="@id/ll_voting_buttons"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/colorAccent"
+            android:visibility="invisible"
+            android:id="@+id/text_voting_dead_warning"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/text_voting_waiting"
+            android:text="@string/voting_waiting"
+            android:padding="16dp"/>
+    </RelativeLayout>
+</FrameLayout>
