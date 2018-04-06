@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -35,11 +36,13 @@ public class VotingActivity extends AppCompatActivity {
     Button positiveVoteButton;
     Button negativeVoteButton;
     TextView deadNotification;
+    ProgressBar progressBar;
     TextView waitingText;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_voting);
         pickledRick = getIntent();
         playerID = pickledRick.getIntExtra("id", 0);
 
@@ -49,7 +52,10 @@ public class VotingActivity extends AppCompatActivity {
         negativeVoteButton = findViewById(R.id.button_voting_nien);
         deadNotification = findViewById(R.id.text_voting_dead_warning);
         waitingText = findViewById(R.id.text_voting_waiting);
+        progressBar = findViewById(R.id.progbar_voting_wait);
+        progressBar.setVisibility(View.GONE);
 
+        flavorText.setText(pickledRick.getStringExtra("statusUpdate"));
         waitingText.setVisibility(View.INVISIBLE);
 
         if (pickledRick.getBooleanExtra("alive", true)) {
@@ -57,24 +63,24 @@ public class VotingActivity extends AppCompatActivity {
             positiveVoteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //Async positive veto with idNumber
-                    //onPostExecute calls pollserver()
+                    new submitVote().execute(true);
                 }
             });
             negativeVoteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //Async negative veto with idNumber
-                    //onPostExecute calls pollserver()
+                    new submitVote().execute(false);
                 }
             });
         } else {
+            progressBar.setVisibility(View.VISIBLE);
             deadNotification.setVisibility(View.VISIBLE);
             waitingText.setVisibility(View.VISIBLE);
             new pollServer().execute();
         }
     }
     public void voteSumbitted() {
+        progressBar.setVisibility(View.VISIBLE);
         waitingText.setVisibility(View.VISIBLE);
         positiveVoteButton.setOnClickListener(null);
         negativeVoteButton.setOnClickListener(null);
@@ -111,6 +117,7 @@ public class VotingActivity extends AppCompatActivity {
             if (!aBoolean) {
                 Log.e(TAG, "onPostExecute: something wrong with submitVote()");
             }
+            voteSumbitted();
             new pollServer().execute();
         }
     }

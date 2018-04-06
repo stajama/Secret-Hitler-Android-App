@@ -21,10 +21,10 @@ public class statusActivityDispatcher {
                 return new Intent(context, VotingActivity.class);
 
             case 98:
-                return new Intent(context, VotingResultActivity.class);
+                return new Intent(context, PolicyResultActivity.class);
 
             case 99:
-                return new Intent(context, VotingResultActivity.class);
+                return new Intent(context, PolicyResultActivity.class);
 
             case 9:
                 return new Intent(context, PolicySelection.class);
@@ -39,7 +39,7 @@ public class statusActivityDispatcher {
                 return new Intent(context, PolicySelection.class);
 
             case 97:
-                return new Intent(context, VotingResultActivity.class);
+                return new Intent(context, PolicyResultActivity.class);
 
             case 14:
                 return new Intent(context, NominationActivity.class);

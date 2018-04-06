@@ -41,7 +41,13 @@
             android:textColor="@color/colorAccent"
             android:visibility="invisible"
             android:id="@+id/text_voting_dead_warning"/>
-
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/text_voting_waiting"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/progbar_voting_wait"
+            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

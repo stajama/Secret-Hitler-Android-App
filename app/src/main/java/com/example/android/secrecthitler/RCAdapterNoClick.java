@@ -17,10 +17,10 @@ public class RCAdapterNoClick extends RecyclerView.Adapter<RCAdapterNoClick.Play
     private final static String TAG = RCAdapterNoClick.class.getName();
 
     private int displayCount;
-    private static String[] informationList;
+    private String[] informationList;
 
     public RCAdapterNoClick(int numberOfItems) {
-        displayCount = informationList.length;
+        displayCount = numberOfItems;
     }
     @NonNull
     @Override
@@ -61,7 +61,8 @@ public class RCAdapterNoClick extends RecyclerView.Adapter<RCAdapterNoClick.Play
 
     }
 
-    public static void setPlayerNameList(String[] data) {
+    public  void setPlayerNameList(String[] data) {
         informationList = data;
+        displayCount = informationList.length;
     }
 }

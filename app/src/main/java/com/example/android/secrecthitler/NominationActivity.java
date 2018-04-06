@@ -134,7 +134,6 @@ public class NominationActivity extends AppCompatActivity {
                 nominationList = received;
                 return received;
             } else {
-                // TODO (1) received this error. check that playerID and nominee ID numbers are sending correctly.
                 Log.e(TAG, "doInBackground: did not receive JSON data.");
                 return null;
             }
@@ -232,9 +231,14 @@ public class NominationActivity extends AppCompatActivity {
     static String setNominee(String selectedName) {
         Iterator<String> array = nominationList.keys();
         String check = null;
-        String idNumber;
+        String idNumber = null;
         while (array.hasNext()) {
             idNumber = array.next();
+            try {
+                Log.i(TAG, "setNominee: in loop, checking: " + idNumber + "-" + nominationList.getString(idNumber));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
             try {
                 check = nominationList.getString(idNumber);
             } catch (JSONException e) {
@@ -245,7 +249,7 @@ public class NominationActivity extends AppCompatActivity {
             }
         }
         Log.e(TAG, "setNominee: Something wrong with JSON loop to pull playerID from original call.");
-        return check;
+        return idNumber;
     }
 
     public class sendNomination extends AsyncTask<String, Void, String> {
@@ -253,12 +257,17 @@ public class NominationActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... strings) {
             String response = null;
+            String call = "client/nominate_chancellor_order/" + String.valueOf(playerID) + "/" + setNominee(strings[0]);
+            Log.d(TAG, "doInBackground: calling to: " + call);
             try {
-                response = NetworkUtilities.getResponseFromHttpUrl(NetworkUtilities.buildUrl("client/nominate_chancellor_order/" + String.valueOf(playerID) + "/" + setNominee(strings[0])));
+                response = NetworkUtilities.getResponseFromHttpUrl(NetworkUtilities.buildUrl(call));
             } catch (IOException e) {
                 e.printStackTrace();
+                Log.e(TAG, "doInBackground: HTTp request not sent correctly");
             }
-            if (response != "confirm") {
+            Log.i(TAG, "doInBackground: response:" + response);
+            if (response.equals("confirm")) {
+                System.out.println(response);
                 Log.e(TAG, "doInBackground: Problem with sendNomination.doInBackground(). did not receive confirmation.");
             }
             return null;

@@ -74,8 +74,8 @@ public class RoleActivity extends AppCompatActivity {
             LinearLayoutManager layoutManager = new LinearLayoutManager(RoleActivity.this);
             mainScroll.setLayoutManager(layoutManager);
             mainScroll.setHasFixedSize(true);
-            RCAdapterNoClick.setPlayerNameList(roleInformationArray);
             RCAdapterNoClick rcAdapter = new RCAdapterNoClick(100);
+            rcAdapter.setPlayerNameList(roleInformationArray);
             mainScroll.setAdapter(rcAdapter);
             Log.d(TAG, "onPostExecute: finished executing.");
         }
