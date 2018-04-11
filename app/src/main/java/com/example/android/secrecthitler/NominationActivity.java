@@ -34,7 +34,7 @@ public class NominationActivity extends AppCompatActivity {
     int statusID;
     Intent pickledRick;
     boolean isPresident;
-    static JSONObject nominationList;
+    JSONObject nominationList;
 
     TextView headline;
     TextView libCount;
@@ -228,7 +228,7 @@ public class NominationActivity extends AppCompatActivity {
         return returnList;
     }
 
-    static String setNominee(String selectedName) {
+    String setNominee(String selectedName) {
         Iterator<String> array = nominationList.keys();
         String check = null;
         String idNumber = null;

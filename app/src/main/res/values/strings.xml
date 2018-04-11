@@ -22,4 +22,5 @@
     <string name="game_in_progress">A game is already in progress. Confirm to override.</string>
     <string name="no_join_text">No game available to join. Please start one.</string>
     <string name="confirm">Confirm</string>
+    <string name="policy_conf_waiting">Waiting for other players...</string>
 </resources>

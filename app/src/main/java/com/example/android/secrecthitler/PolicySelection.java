@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -208,6 +210,31 @@ public class PolicySelection extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.information, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int clickedItem = item.getItemId();
+        if (clickedItem == R.id.info_menu_button) {
+            Intent goTo = new Intent(this, RoleActivity.class);
+            goTo.putExtra("id", pickledRick.getIntExtra("id", 0));
+            startActivity(goTo);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+//        logAndAppend("onSaveInstanceState");
+        outState.putInt("playerID", playerID);
+    }
+
     public class initialServerCall extends AsyncTask<Integer, Void, JSONObject> {
         @Override
         protected JSONObject doInBackground(Integer... integers) {

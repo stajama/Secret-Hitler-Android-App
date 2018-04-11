@@ -65,4 +65,5 @@ public class RCAdapterNoClick extends RecyclerView.Adapter<RCAdapterNoClick.Play
         informationList = data;
         displayCount = informationList.length;
     }
+
 }

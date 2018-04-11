@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         android:textSize="32sp"
         android:padding="16dp"
-        android:text="Game Over"/>
+        android:text="Game Over"
+        android:id="@+id/game_over"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/game_over"
         android:id="@+id/text_over_winner"
         android:textSize="32sp"
         android:padding="16dp"
@@ -20,21 +26,32 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_over_winner"
         android:id="@+id/text_over_win_clause"
         android:textSize="32sp"
         android:padding="16dp"
         android:text="@string/place_holder"/>
-    <ScrollView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/text_over_win_clause"
+        app:layout_constraintBottom_toTopOf="@id/button_over_play_again">
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/text_over_win_clause"
+            android:id="@+id/recycler_game_over">
 
-        <!--list all players, role/status-->
-    </ScrollView>
+            <!--list all players, role/status-->
+        </android.support.v7.widget.RecyclerView>
+    </FrameLayout>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="restart"
         android:padding="16dp"
-        android:id="@+id/button_over_play_again"/>
-</LinearLayout>
+        android:id="@+id/button_over_play_again"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</android.support.constraint.ConstraintLayout>

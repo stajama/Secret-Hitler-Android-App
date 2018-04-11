@@ -1,6 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/place_holder"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/text_policy_announcement"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_results_libCount"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/text_policy_announcement"
+        android:padding="8dp"
+        android:text="Liberal Policies Passed: "/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_results_fasCount"
+        android:gravity="center"
+        android:padding="8dp"
+        app:layout_constraintTop_toBottomOf="@id/text_results_libCount"
+        android:text="Fascist Policies Passed: "/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/text_results_fasCount"
+        android:id="@+id/text_results_election_tracker"
+        android:text="Citizen Frustration:  "/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/policy_conf_waiting"
+        android:id="@+id/text_policy_conf_waiting"
+        app:layout_constraintBottom_toTopOf="@id/progbar_policy_result_wait"/>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progbar_policy_result_wait"
+        app:layout_constraintBottom_toTopOf="@id/button_policy_result_confirm"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/confirm"
+        android:id="@+id/button_policy_result_confirm"/>
 </android.support.constraint.ConstraintLayout>

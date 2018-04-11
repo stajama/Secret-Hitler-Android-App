@@ -21,10 +21,10 @@ public class statusActivityDispatcher {
                 return new Intent(context, VotingActivity.class);
 
             case 98:
-                return new Intent(context, PolicyResultActivity.class);
+                return new Intent(context, VotingResultActivity.class);
 
             case 99:
-                return new Intent(context, PolicyResultActivity.class);
+                return new Intent(context, VotingResultActivity.class);
 
             case 9:
                 return new Intent(context, PolicySelection.class);
@@ -52,6 +52,8 @@ public class statusActivityDispatcher {
                 return new Intent(context, PeekActivity.class);
             case 100:
                 return new Intent(context, GameOverActivity.class);
+            case 13:
+                return new Intent(context, PolicyResultActivity.class);
             default:
                 return new Intent();
         }

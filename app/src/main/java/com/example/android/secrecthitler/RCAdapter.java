@@ -66,7 +66,7 @@ public class RCAdapter extends RecyclerView.Adapter<RCAdapter.PlayerListHolder> 
         public void onClick(View view) {
             TextView casted = (TextView) view;
             Log.d(TAG, "onClick: scrollview item clicked, name - " + casted.getText().toString());
-            NominationActivity.setNominee((String) casted.getText());
+//            NominationActivity.setNominee((String) casted.getText());
         }
     }
 
